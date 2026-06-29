@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Placement Portal - Agile Product Simulation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+header{
+    background:#0d6efd;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    margin-bottom:10px;
+}
+
+.container{
+    width:90%;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:25px;
+}
+
+section{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+section h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#084298;
+}
+
+.company{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.company h3{
+    color:#0d6efd;
+    margin-bottom:8px;
+}
+
+.company p{
+    margin:5px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table th{
+    background:#0d6efd;
+    color:white;
+    padding:10px;
+}
+
+table td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+footer{
+    text-align:center;
+    margin:30px;
+    color:#555;
+}
+
+@media(max-width:768px){
+.container{
+grid-template-columns:1fr;
+}
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h1>Campus Placement Portal</h1>
+
+<p>Mini Project - Agile Product Simulation (MVP)</p>
+
+</header>
+
+<div class="container">
+
+<!-- Student Registration -->
+
+<section>
+
+<h2>Student Registration</h2>
+
+<form id="studentForm">
+
+<input type="text" id="name" placeholder="Student Name" required>
+
+<input type="email" id="email" placeholder="College Email" required>
+
+<input type="text" id="branch" placeholder="Branch" required>
+
+<button type="submit">Register</button>
+
+</form>
+
+</section>
+
+<!-- Company List -->
+
+<section>
+
+<h2>Available Companies</h2>
+
+<div id="companyList"></div>
+
+</section>
+
+<!-- Registered Students -->
+
+<section style="grid-column:1/-1;">
+
+<h2>Registered Students</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Branch</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="studentTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+</div>
+
+<footer>
+
+<h3>Agile Product Simulation Project</h3>
+
+<p>Developed using HTML, CSS & JavaScript</p>
+
+</footer>
+
+<script>
+
+// Company Data
+
+const companies=[
+
+{
+name:"Google",
+role:"Software Engineer",
+cgpa:"8.0",
+deadline:"30 June"
+},
+
+{
+name:"Microsoft",
+role:"Backend Developer",
+cgpa:"7.5",
+deadline:"2 July"
+},
+
+{
+name:"Amazon",
+role:"Cloud Engineer",
+cgpa:"7.0",
+deadline:"5 July"
+},
+
+{
+name:"Infosys",
+role:"System Engineer",
+cgpa:"6.5",
+deadline:"8 July"
+},
+
+{
+name:"TCS",
+role:"Graduate Trainee",
+cgpa:"6.0",
+deadline:"10 July"
+}
+
+];
+
+// Display Companies
+
+const companyList=document.getElementById("companyList");
+
+companies.forEach(company=>{
+
+companyList.innerHTML+=`
+
+<div class="company">
+
+<h3>${company.name}</h3>
+
+<p><strong>Role:</strong> ${company.role}</p>
+
+<p><strong>Minimum CGPA:</strong> ${company.cgpa}</p>
+
+<p><strong>Deadline:</strong> ${company.deadline}</p>
+
+<button onclick="applyCompany('${company.name}')">Apply</button>
+
+</div>
+
+`;
+
+});
+
+// Apply Button
+
+function applyCompany(company){
+
+alert("Application Submitted Successfully to " + company + " 🎉");
+
+}
+
+// Student Registration
+
+const form=document.getElementById("studentForm");
+const table=document.getElementById("studentTable");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const name=document.getElementById("name").value;
+const email=document.getElementById("email").value;
+const branch=document.getElementById("branch").value;
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${name}</td>
+
+<td>${email}</td>
+
+<td>${branch}</td>
+
+<td style="color:green;"><strong>Registered</strong></td>
+
+</tr>
+
+`;
+
+alert("Registration Successful!");
+
+form.reset();
+
+});
+
+</script>
+
+</body>
+</html> 

@@ -74,19 +74,34 @@ button:hover{
 }
 
 .company{
-    border:1px solid #ddd;
-    border-radius:10px;
-    padding:15px;
-    margin-bottom:15px;
+
+background:#f8f9fa;
+border-left:6px solid #0d6efd;
+padding:18px;
+border-radius:10px;
+margin-bottom:18px;
+transition:.3s;
+
+}
+
+.company:hover{
+
+transform:translateY(-5px);
+box-shadow:0 6px 15px rgba(0,0,0,.15);
+
 }
 
 .company h3{
-    color:#0d6efd;
-    margin-bottom:8px;
+
+color:#0d6efd;
+margin-bottom:10px;
+
 }
 
 .company p{
-    margin:5px 0;
+
+margin:6px 0;
+
 }
 
 table{
@@ -245,11 +260,13 @@ grid-template-columns:1fr;
 
 // Company Data
 
-const companies=[
+const companies = [
 
 {
 name:"Google",
 role:"Software Engineer",
+package:"₹18 LPA",
+location:"Bangalore",
 cgpa:"8.0",
 deadline:"30 June"
 },
@@ -257,6 +274,8 @@ deadline:"30 June"
 {
 name:"Microsoft",
 role:"Backend Developer",
+package:"₹16 LPA",
+location:"Hyderabad",
 cgpa:"7.5",
 deadline:"2 July"
 },
@@ -264,6 +283,8 @@ deadline:"2 July"
 {
 name:"Amazon",
 role:"Cloud Engineer",
+package:"₹15 LPA",
+location:"Chennai",
 cgpa:"7.0",
 deadline:"5 July"
 },
@@ -271,6 +292,8 @@ deadline:"5 July"
 {
 name:"Infosys",
 role:"System Engineer",
+package:"₹5.5 LPA",
+location:"Bhubaneswar",
 cgpa:"6.5",
 deadline:"8 July"
 },
@@ -278,12 +301,13 @@ deadline:"8 July"
 {
 name:"TCS",
 role:"Graduate Trainee",
+package:"₹4 LPA",
+location:"Kolkata",
 cgpa:"6.0",
 deadline:"10 July"
 }
 
 ];
-
 // Display Companies
 
 const companyList=document.getElementById("companyList");
@@ -296,25 +320,32 @@ companyList.innerHTML+=`
 
 <h3>${company.name}</h3>
 
-<p><strong>Role:</strong> ${company.role}</p>
+<p><strong>💼 Role :</strong> ${company.role}</p>
 
-<p><strong>Minimum CGPA:</strong> ${company.cgpa}</p>
+<p><strong>💰 Package :</strong> ${company.package}</p>
 
-<p><strong>Deadline:</strong> ${company.deadline}</p>
+<p><strong>📍 Location :</strong> ${company.location}</p>
 
-<button onclick="applyCompany('${company.name}')">Apply</button>
+<p><strong>🎓 Minimum CGPA :</strong> ${company.cgpa}</p>
+
+<p><strong>📅 Last Date :</strong> ${company.deadline}</p>
+
+<button onclick="applyCompany('${company.name}')">
+
+Apply Now
+
+</button>
 
 </div>
 
 `;
 
 });
-
 // Apply Button
 
 function applyCompany(company){
 
-alert("Application Submitted Successfully to " + company + " 🎉");
+alert("🎉 Successfully Applied to " + company);
 
 }
 

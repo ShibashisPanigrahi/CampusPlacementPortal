@@ -135,17 +135,27 @@ grid-template-columns:1fr;
 
 <!-- Student Registration -->
 
+<!-- Student Registration -->
+
 <section>
 
 <h2>Student Registration</h2>
 
 <form id="studentForm">
 
-<input type="text" id="name" placeholder="Student Name" required>
+<input type="text" id="name" placeholder="Full Name" required>
 
 <input type="email" id="email" placeholder="College Email" required>
 
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<input type="text" id="college" placeholder="College Name" required>
+
 <input type="text" id="branch" placeholder="Branch" required>
+
+<input type="number" id="cgpa" step="0.01" min="0" max="10" placeholder="CGPA" required>
+
+<input type="password" id="password" placeholder="Password" required>
 
 <button type="submit">Register</button>
 
@@ -284,18 +294,21 @@ alert("Application Submitted Successfully to " + company + " 🎉");
 
 // Student Registration
 
-const form=document.getElementById("studentForm");
-const table=document.getElementById("studentTable");
+const form = document.getElementById("studentForm");
+const table = document.getElementById("studentTable");
 
-form.addEventListener("submit",function(e){
+form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
-const name=document.getElementById("name").value;
-const email=document.getElementById("email").value;
-const branch=document.getElementById("branch").value;
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const phone = document.getElementById("phone").value;
+const college = document.getElementById("college").value;
+const branch = document.getElementById("branch").value;
+const cgpa = document.getElementById("cgpa").value;
 
-table.innerHTML+=`
+table.innerHTML += `
 
 <tr>
 
@@ -311,7 +324,16 @@ table.innerHTML+=`
 
 `;
 
-alert("Registration Successful!");
+alert(
+`Registration Successful!
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+College: ${college}
+Branch: ${branch}
+CGPA: ${cgpa}`
+);
 
 form.reset();
 

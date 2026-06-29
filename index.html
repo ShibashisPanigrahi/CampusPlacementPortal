@@ -217,6 +217,13 @@ View Companies
 <div id="companyList"></div>
 
 </section>
+<section>
+
+<h2>Application Status</h2>
+
+<p id="status">No Application Yet</p>
+
+</section>
 
 <!-- Registered Students -->
 
@@ -350,7 +357,10 @@ Apply Now
 
 function applyCompany(company){
 
-alert("🎉 Successfully Applied to " + company);
+alert("Application Submitted Successfully!");
+
+document.getElementById("status").innerHTML =
+"Applied to : " + company;
 
 }
 
